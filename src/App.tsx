@@ -3,7 +3,7 @@ import React, { lazy } from "react";
 import theme from "@styles/theme";
 import ThemeProvider from "@mui/system/ThemeProvider";
 import { CssBaseline } from "@mui/material";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme as antdTheme } from "antd";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const BaseRoutes = lazy(() => import("./routes"));
@@ -16,6 +16,7 @@ const App: React.FC = () => {
 			<ThemeProvider theme={theme}>
 				<ConfigProvider
 					theme={{
+						algorithm: antdTheme.darkAlgorithm,
 						token: {
 							colorPrimary: theme.palette.primary.main,
 							borderRadius: 4,
