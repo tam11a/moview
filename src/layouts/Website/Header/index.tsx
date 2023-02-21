@@ -14,8 +14,14 @@ import { Link } from "react-router-dom";
 const WebsiteHeader: React.FC = () => {
 	return (
 		<>
-			<AppBar className="shadow-none bg-[#161a1e32] backdrop-blur-sm">
-				<Toolbar className="bg-[#161a1e96] py-4">
+			<AppBar
+				sx={{ background: "transparent" }}
+				className="shadow-none bg-[#161a1e32] backdrop-blur-sm"
+			>
+				<Toolbar
+					sx={{ background: "transparent" }}
+					className="bg-[#161a1e96] py-4"
+				>
 					<Container className="flex flex-row items-center justify-between gap-7">
 						<span className="flex flex-row items-center justify-center gap-3 flex-1">
 							<Link to={"/"}>
@@ -31,7 +37,7 @@ const WebsiteHeader: React.FC = () => {
 											Mo<span className="text-[#ffc933]">view</span>
 										</>
 									}
-									secondary={"Find and Watch Movies!!"}
+									secondary={"Think • Search • Watch"}
 									primaryTypographyProps={{ className: "font-bold" }}
 								/>
 							</Hidden>
