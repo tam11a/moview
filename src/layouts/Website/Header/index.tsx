@@ -48,7 +48,7 @@ const WebsiteHeader: React.FC = () => {
 					</Container>
 				</Toolbar>
 			</AppBar>
-			<div className="mb-24" />
+			<div className="mb-32" />
 		</>
 	);
 };
