@@ -43,21 +43,23 @@ const Splash: React.FC = () => {
 			{data?.data?.data?.movies?.map?.((movie: any) => (
 				<SwiperSlide
 					key={movie.id}
-					className="h-[450px]"
+					className="min-h-[450px]"
 				>
 					<Paper
-						className="h-[345px] mx-auto mt-[50px] w-4/6 flex flex-row"
+						className="h-[345px] mx-auto mt-[50px] w-4/6 flex flex-col sm:flex-row bg-transparent shadow-none sm:bg-[#161A1E] sm:shadow-lg"
 						sx={{ background: "transparent", bgcolor: "background.paper" }}
 						elevation={5}
 					>
-						<Avatar
-							src={movie.medium_cover_image}
-							variant="square"
-							className="w-auto scale-125 max-w-sm min-w-[230px] h-auto shadow-lg shadow-[#00000044] mr-10 text-9xl"
-						>
-							<Iconify icon="tabler:movie-off" />
-						</Avatar>
-						<div className="flex flex-col gap-3 px-7 justify-center">
+						<Link to={`show/${movie.id}`}>
+							<Avatar
+								src={movie.medium_cover_image}
+								variant="square"
+								className="w-[70vw] sm:w-auto sm:scale-125 max-w-[200px] sm::max-w-[100px] md:max-w-sm min-w-160px sm:min-w-[210px] h-auto shadow-lg shadow-[#00000044] sm:mr-10 text-9xl"
+							>
+								<Iconify icon="tabler:movie-off" />
+							</Avatar>
+						</Link>
+						<div className="hidden sm:flex flex-col gap-3 px-7 justify-center">
 							<Typography
 								variant="h6"
 								className="font-bold"
@@ -66,27 +68,6 @@ const Splash: React.FC = () => {
 							>
 								{movie.title}{" "}
 								<span className="text-slate-500">({movie.year})</span>
-							</Typography>
-							<Typography
-								variant="caption"
-								className="text-slate-500 font-semibold"
-							>
-								{movie.genres?.join?.(" • ")}
-							</Typography>
-							<Typography
-								variant="subtitle2"
-								sx={{ "& span": { color: "primary.main" } }}
-							>
-								{movie.description_full?.length > 210 ? (
-									<>
-										{movie.description_full?.slice?.(0, 210)}....{" "}
-										<Link to={`show/${movie.id}`}>
-											<span>Read more</span>
-										</Link>
-									</>
-								) : (
-									movie.description_full
-								)}
 							</Typography>
 							<div className="flex flex-row items-center gap-2">
 								<IconButton
@@ -111,6 +92,29 @@ const Splash: React.FC = () => {
 									</Typography>
 								)}
 							</div>
+							<Typography
+								variant="subtitle2"
+								sx={{ "& span": { color: "primary.main" } }}
+								className="hidden lg:block"
+							>
+								{movie.description_full?.length > 210 ? (
+									<>
+										{movie.description_full?.slice?.(0, 210)}....{" "}
+										<Link to={`show/${movie.id}`}>
+											<span>Read more</span>
+										</Link>
+									</>
+								) : (
+									movie.description_full
+								)}
+							</Typography>
+
+							<Typography
+								variant="caption"
+								className="text-slate-500 font-semibold"
+							>
+								{movie.genres?.join?.(" • ")}
+							</Typography>
 						</div>
 					</Paper>
 				</SwiperSlide>

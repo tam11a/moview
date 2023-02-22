@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const WebsiteFooter: React.FC = () => {
 	return (
 		<>
-			<AppBar className="relative mt-7">
+			<AppBar className="relative mt-16">
 				<Toolbar
 					sx={{ bgcolor: "background.paper" }}
 					className="min-h-[400px]"

@@ -42,6 +42,9 @@ const WebsiteHeader: React.FC = () => {
 								/>
 							</Hidden>
 						</span>
+						<Hidden smUp>
+							<div className="flex-1" />
+						</Hidden>
 						<Link to={"/"}>Home</Link>
 						<Link to={"/explore"}>Explore</Link>
 						<IconButton
